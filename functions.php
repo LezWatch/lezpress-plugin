@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Functions
+Plugin Name: LezPress.com Functions
 Description: Special Functions
 Version: 1.0.0
 Author: Mika Epstein
@@ -11,6 +11,7 @@ Author: Mika Epstein
  */
 
 include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
+include_once( dirname( __FILE__ ) . '/wp-help.php' );
 
 /**
  * class LezPressCom
@@ -21,9 +22,16 @@ class LezPressCom {
 
 	protected static $version;
 
+	/**
+	 * __construct function.
+	 *
+	 * @access public
+	 * @return void
+	 */
 	function __construct() {
 		self::$version = '1.0.0';
 		add_action( 'wp_enqueue_scripts', array( $this,  'wp_enqueue_scripts' ) );
+		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	/**
@@ -32,16 +40,6 @@ class LezPressCom {
 	function wp_enqueue_scripts() {
 		// Cat Signal
 		wp_enqueue_script( 'cat-signal', '/wp-content/mu-plugins/assets/catsignal.js', array(), self::$version, true );
-	}
-
-	/**
-	 * __construct function.
-	 *
-	 * @access public
-	 * @return void
-	 */
-	public function __construct() {
-		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	/**
