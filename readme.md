@@ -19,7 +19,7 @@ Global Advertising code
 
 _Display Affiliate Ads_
 
-Usage: `[affiliates type={random|genesis|facetwp|liquidweb} size={heightxwidth}]`
+Usage: `[affiliates type={random|genesis|facetwp|dreamhost} size={heightxwidth}]`
 
 (Currently all ads are 300x250 for ... reasons)
 
