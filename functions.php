@@ -2,14 +2,13 @@
 /*
 Plugin Name: LezPress.com Functions
 Description: Special Functions
-Version: 1.0.0
+Version: 2.1.0
 Author: Mika Epstein
 */
 
 /*
  * File Includes
  */
-
 include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
 include_once( dirname( __FILE__ ) . '/wp-help.php' );
 

@@ -1,7 +1,7 @@
 <?php
 /*
 Global Advertising code used by pretty much everyone on LezWatch/Press
-Version: 1.0
+Version: 1.1
 Author: Mika Epstein
 */
 
