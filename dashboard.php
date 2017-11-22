@@ -38,16 +38,16 @@ class LP_Dashboard{
 	 * @since 1.0
 	 */
 	public function dashboard_glance_feedback() {
-        	foreach ( array( 'feedback' ) as $post_type ) {
-        		$num_posts = wp_count_posts( $post_type );
-        		if ( $num_posts && $num_posts->publish ) {
-        			if ( 'feedback' == $post_type ) {
-        				$text = _n( '%s Message', '%s Messages', $num_posts->publish );
-        			}
-        			$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
-        			printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
-        		}
-        	}
+			foreach ( array( 'feedback' ) as $post_type ) {
+				$num_posts = wp_count_posts( $post_type );
+				if ( $num_posts && $num_posts->publish ) {
+					if ( 'feedback' == $post_type ) {
+						$text = _n( '%s Message', '%s Messages', $num_posts->publish );
+					}
+					$text = sprintf( $text, number_format_i18n( $num_posts->publish ) );
+					printf( '<li class="%1$s-count"><a href="edit.php?post_type=%1$s">%2$s</a></li>', $post_type, $text );
+				}
+			}
 	}
 
 	/*
