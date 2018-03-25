@@ -10,7 +10,6 @@ Author: Mika Epstein
  * File Includes
  */
 include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
-include_once( dirname( __FILE__ ) . '/wp-help.php' );
 
 /**
  * class LezPressCom
