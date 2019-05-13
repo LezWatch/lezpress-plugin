@@ -10,7 +10,7 @@ This plugin manages the add-on aspects of the LezPress site.
 
 ### Main (functions.php)
 
-* Cat Signal support
+* GDPR footer code that is cache friendly
 * Genesis footer credits
 
 ### Advertising
@@ -33,10 +33,6 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 * Show Feedback in "Right Now"
 * Custom Icon for Feedback in "Right Now"
 * Custom column with icon for featured images in posts
-
-### WP Help
-
-Custom CSS
 
 ## Deployment
 

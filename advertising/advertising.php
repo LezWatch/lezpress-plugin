@@ -34,37 +34,42 @@ class LP_Advertising {
 
 	public function affiliates( $atts ) {
 
-		$attr = shortcode_atts( array(
-			'type'  => 'random',
-			'size'  => '300x250',
-		), $atts );
+		$attr = shortcode_atts(
+			array(
+				'type' => 'random',
+				'size' => '300x250',
+			),
+			$atts
+		);
 
 		$type = sanitize_text_field( $attr['type'] );
 		$size = sanitize_text_field( $attr['size'] );
 
-		$valid_sizes  = array( '300x250' );
-		$valid_types  = array( 'genesis', 'facetwp', 'liquidweb', 'yikes' );
+		$valid_sizes = array( '300x250' );
+		$valid_types = array( 'genesis', 'facetwp', 'liquidweb', 'yikes' );
 
-		if ( $type == 'random' || !in_array( $type, $valid_types) )
+		if ( 'random' === $type || ! in_array( $type, $valid_types ) ) {
 			$type = $valid_types [ array_rand( $valid_types ) ];
+		}
 
-		if ( !in_array( $size, $valid_sizes) )
+		if ( ! in_array( $size, $valid_sizes ) ) {
 			$size = '300x250';
+		}
 
 		$genesis = array(
 			'300x250' => '<a target="_blank" href="http://shareasale.com/r.cfm?b=255472&amp;u=728549&amp;m=28169&amp;urllink=&amp;afftrack="><img src="https://i.shareasale.com/image/28169/300x250.png" border="0" alt="Genesis Framework for WordPress" /></a>',
 		);
 
 		$facetwp = array(
-			'300x250' => '<a href="https://facetwp.com/?ref=91&campaign=LezPress"><img src="' . plugins_url( "images/facetwp-300x250.png", __FILE__ ) . '"></a>',
+			'300x250' => '<a href="https://facetwp.com/?ref=91&campaign=LezPress"><img src="' . plugins_url( 'images/facetwp-300x250.png', __FILE__ ) . '"></a>',
 		);
 
 		$dreamhost = array(
-			'300x250' => '<a href="https://dreamhost.com/dreampress/"><img src="' . plugins_url( "images/dreamhost-300x250.png", __FILE__ ) . '"></a>',
+			'300x250' => '<a href="https://dreamhost.com/dreampress/"><img src="' . plugins_url( 'images/dreamhost-300x250.png', __FILE__ ) . '"></a>',
 		);
 
 		$yikes = array(
-			'300x250' => '<a href="https://www.yikesinc.com"><img src="' . plugins_url( "images/yikes-300x250.png", __FILE__ ) . '"></a>',
+			'300x250' => '<a href="https://www.yikesinc.com"><img src="' . plugins_url( 'images/yikes-300x250.png', __FILE__ ) . '"></a>',
 		);
 
 		$advert = '<!-- BEGIN Affiliate Ads --><div class="affiliate-ads ' . sanitize_html_class( $attr['type'] ) . '">';
@@ -108,7 +113,7 @@ class LP_Advertising {
 				$height = '600';
 				$linkid = 'df6784c1de12263d667401e69a4893e7';
 				$p      = '11';
-			break;
+				break;
 			default:
 				$width  = '468';
 				$height = '60';
@@ -119,7 +124,7 @@ class LP_Advertising {
 		$gift_card_ads = '
 			<div class="alignleft">
 				<script type="text/javascript">
-				    amzn_assoc_ad_type = "banner";
+					amzn_assoc_ad_type = "banner";
 					amzn_assoc_marketplace = "amazon";
 					amzn_assoc_region = "US";
 					amzn_assoc_placement = "assoc_banner_placement_default";
@@ -131,7 +136,7 @@ class LP_Advertising {
 					amzn_assoc_linkid = "d1494a48a27537cf8ecaa3b732b56b2d";
 				</script>
 				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-		    </div>';
+				</div>';
 
 		$banner_ads = '
 			<div class="alignleft">
@@ -146,8 +151,8 @@ class LP_Advertising {
 					amzn_assoc_height = "' . $height . '";
 					amzn_assoc_tracking_id = "lezpress-20";
 					amzn_assoc_linkid = "' . $linkid . '";;
-			    </script>
-			    <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+				</script>
+				<script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
 			</div>
 		';
 
@@ -158,11 +163,14 @@ class LP_Advertising {
 		switch ( $attr['type'] ) {
 			case 'native':
 				$ads .= $native_ads;
+				break;
 			case 'banner':
 				$ads .= $banner_ads;
+				break;
 			case 'gift-card':
 			default:
 				$ads .= $gift_card_ads;
+				break;
 		}
 		$ads .= '</div><!-- END Amazon Ads -->';
 

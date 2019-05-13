@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: LezPress.com Functions
-Description: Special Functions
-Version: 3.0.0
-Author: Mika Epstein
+ * Plugin Name: LezPress.com Functions
+ * Description: Special Functions
+ * Version: 3.0.0
+ * Author: Mika Epstein
 */
 
 /*
  * File Includes
  */
-include_once( dirname( __FILE__ ) . '/advertising/advertising.php' );
+require_once dirname( __FILE__ ) . '/advertising/advertising.php';
 
 /**
  * class LezPressCom
@@ -26,16 +26,16 @@ class LezPressCom {
 	 * @access public
 	 * @return void
 	 */
-	function __construct() {
+	public function __construct() {
 		self::$version = '3.0.0';
-		add_action( 'wp_enqueue_scripts', array( $this,  'wp_enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	/**
 	 * Enqueue Scripts
 	 */
-	function wp_enqueue_scripts() {
+	public function wp_enqueue_scripts() {
 		$bootstrap = '4.1.1';
 		wp_enqueue_style( 'lezpress-gdpr', plugins_url( '/inc/css/gdpr.css', __FILE__ ), '', self::$version, 'all' );
 		wp_enqueue_script( 'bootstrap', plugins_url( '/inc/js/bootstrap.min.js', __FILE__ ), array( 'jquery' ), $bootstrap, 'all', true );
@@ -49,15 +49,15 @@ class LezPressCom {
 	 * @access public
 	 * @return void
 	 */
-	function init() {
+	public function init() {
 
 		// Footer
 		add_action( 'wp_footer', array( $this, 'gdpr_footer' ), 5 );
 
 		// Filter genesis footer credits
 		add_filter( 'genesis_footer_creds_text', function( $creds ) {
-		    $creds = 'Copyright [footer_copyright first="2016"] <a href="https://lezpress.com">Lez Press</a> &middot; <a href="https://lezpress.com/terms-of-use/">Terms of Use</a> <br /> Powered by the <a href="http://www.shareasale.com/r.cfm?b=830048&u=728549&m=28169&urllink=&afftrack=">Showcase Pro Theme</a> on the <a href="http://www.shareasale.com/r.cfm?b=346198&u=728549&m=28169&urllink=&afftrack=">Genesis Framework</a>, [footer_wordpress_link], and <a href="https://www.dreamhost.com/dreampress">DreamPress Hosting</a> <br /> [footer_loginout]';
-		    return $creds;
+			$creds = 'Copyright [footer_copyright first="2016"] <a href="https://lezpress.com">Lez Press</a> &middot; <a href="https://lezpress.com/terms-of-use/">Terms of Use</a> <br /> Powered by the <a href="http://www.shareasale.com/r.cfm?b=830048&u=728549&m=28169&urllink=&afftrack=">Showcase Pro Theme</a> on the <a href="http://www.shareasale.com/r.cfm?b=346198&u=728549&m=28169&urllink=&afftrack=">Genesis Framework</a>, [footer_wordpress_link], and <a href="https://www.dreamhost.com/dreampress">DreamPress Hosting</a> <br /> [footer_loginout]';
+			return $creds;
 		}, 10, 2 );
 	}
 
@@ -65,8 +65,8 @@ class LezPressCom {
 	 * Echo GDPR notice if users aren't logged in
 	 * (logged in users alredy know what they're in for, yo)
 	 */
-	function gdpr_footer(){
-		if ( !is_user_logged_in() ) {
+	public function gdpr_footer() {
+		if ( ! is_user_logged_in() ) {
 			?>
 			<div id="GDPRAlert" class="alert alert-info alert-dismissible fade collapse alert-gdpr" role="alert">
 				We use cookies to personalize content, provide features, analyze traffic, and optimize advertising. By continuing to use this website, you agree to their use. For more information, you may review our <a href="/terms-of-use/">Terms of Use</a> and <a href="/terms-of-use/privacy/">Privacy Policy</a>.
