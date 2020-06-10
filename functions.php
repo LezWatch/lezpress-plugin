@@ -2,7 +2,7 @@
 /*
  * Plugin Name: LezPress.com Functions
  * Description: Special Functions
- * Version: 3.0.0
+ * Version: 3.1.0
  * Author: Mika Epstein
 */
 
@@ -50,15 +50,8 @@ class LezPressCom {
 	 * @return void
 	 */
 	public function init() {
-
 		// Footer
 		add_action( 'wp_footer', array( $this, 'gdpr_footer' ), 5 );
-
-		// Filter genesis footer credits
-		add_filter( 'genesis_footer_creds_text', function( $creds ) {
-			$creds = 'Copyright [footer_copyright first="2016"] <a href="https://lezpress.com">Lez Press</a> &middot; <a href="https://lezpress.com/terms-of-use/">Terms of Use</a> <br /> Powered by the <a href="http://www.shareasale.com/r.cfm?b=830048&u=728549&m=28169&urllink=&afftrack=">Showcase Pro Theme</a> on the <a href="http://www.shareasale.com/r.cfm?b=346198&u=728549&m=28169&urllink=&afftrack=">Genesis Framework</a>, [footer_wordpress_link], and <a href="https://www.dreamhost.com/dreampress">DreamPress Hosting</a> <br /> [footer_loginout]';
-			return $creds;
-		}, 10, 2 );
 	}
 
 	/**

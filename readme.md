@@ -11,7 +11,6 @@ This plugin manages the add-on aspects of the LezPress site.
 ### Main (functions.php)
 
 * GDPR footer code that is cache friendly
-* Genesis footer credits
 
 ### Advertising
 
@@ -19,13 +18,10 @@ Global Advertising code
 
 _Display Affiliate Ads_
 
-Usage: `[affiliates type={random|genesis|facetwp|dreamhost} size={heightxwidth}]`
+Usage: `[affiliates type={random|facetwp|dreamhost} size={heightxwidth}]`
 
 (Currently all ads are 300x250 for ... reasons)
 
-_Display Amazon Ads_
-
-Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 
 ### Dashboard
 
@@ -36,6 +32,6 @@ Usage: `[amazon-ads type={banner|gift-card} size={468x30}]`
 
 ## Deployment
 
-When pushed to master, this code automatically deploys to the following site(s):
+When pushed to main, this code automatically deploys to the following site(s):
 
 * lezpress.com
