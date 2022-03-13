@@ -36,7 +36,7 @@ class LezPressCom {
 	 * Enqueue Scripts
 	 */
 	public function wp_enqueue_scripts() {
-		$bootstrap = '4.1.1';
+		$bootstrap = '5.1.13';
 		wp_enqueue_style( 'lezpress-gdpr', plugins_url( '/inc/css/gdpr.css', __FILE__ ), '', self::$version, 'all' );
 		wp_enqueue_script( 'bootstrap', plugins_url( '/inc/js/bootstrap.min.js', __FILE__ ), array( 'jquery' ), $bootstrap, 'all', true );
 		wp_enqueue_script( 'lezpress-gdpr', plugins_url( '/inc/js/gdpr.js', __FILE__ ), array( 'bootstrap' ), self::$version, 'all', true );
